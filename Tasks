@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        // Count Digits
+        System.out.println("Enter a word: ");
+        String word = in.nextLine();
+        int digitCount = word.length();
+        System.out.println("The word has: " + digitCount + " characters");
+
+        // Sum of Even Numbers
+        System.out.println("Enter a number: ");
+        int number = in.nextInt();
+        int evenSum = 0;
+        for (int i = 1; i <= number; i++) {
+            if (i % 2 == 0) {
+                evenSum += i;
+            }
+        }
+        System.out.println("The sum of even numbers is: " + evenSum);
+
+        // Check Prime
+        System.out.println("Enter a number to check if it's prime: ");
+        int primeCandidate = in.nextInt();
+        boolean isPrime = true;
+        for (int i = 2; i <= Math.sqrt(primeCandidate); i++) {
+            if (primeCandidate % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+        if (primeCandidate > 1 && isPrime) {
+            System.out.println(primeCandidate + " is a prime number");
+        } else {
+            System.out.println(primeCandidate + " is not a prime number");
+        }
+
+        // Greatest Common Divisor
+        System.out.println("Enter two numbers to find their GCD:");
+        int num1 = in.nextInt();
+        int num2 = in.nextInt();
+        while (num2 != 0) {
+            int temp = num2;
+            num2 = num1 % num2;
+            num1 = temp;
+        }
+        System.out.println("The greatest common divisor is: " + num1);
+
+        // Binary to Decimal
+        System.out.println("Enter a binary number: ");
+        in.nextLine(); // Consume newline
+        String binary = in.nextLine();
+        int decimalValue = Integer.parseInt(binary, 2);
+        System.out.println("The decimal value is: " + decimalValue);
+
+        in.close();
+    }
+}
